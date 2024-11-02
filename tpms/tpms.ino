@@ -188,20 +188,6 @@ int returninitial(String Data) {
 
 
 
-void readSensor() 
-{
-   // IMPORTANT, protect from spawning multiple delayed instructions when the connection is lost
-   if(!client.isConnected())
-   	return;
-
-   // What you want to execute each (5) seconds
-   if(pressure_to_send_sn_front != "")
-   client.publish("Pressuremonitoring/S_N_front/Pressure", pressure_to_send_sn_front); 
-   
-   
-   // Re-schedule the instructions
-   client.executeDelayed(5 * 1000, readSensor);
-}
 
 void setup() {
   // Opening serial port
